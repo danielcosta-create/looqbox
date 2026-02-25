@@ -1,6 +1,6 @@
-import { env } from "@/config/env";
+import type { HttpClient } from "@/shared/services/interfaces/httpClient";
 
-class HttpClient {
+export class FetchHttpClient implements HttpClient {
   private baseURL: string;
 
   constructor(baseURL: string = "") {
@@ -24,4 +24,3 @@ class HttpClient {
   }
 }
 
-export const httpClient = new HttpClient(env.API_URL);

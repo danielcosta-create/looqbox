@@ -1,22 +1,20 @@
 import { z } from "zod";
-import { logger } from "@/utils/logger";
 
-const envSchema = z.object({
-  NEXT_PUBLIC_API_URL: z.string().url(),
-  NEXT_PUBLIC_LOOKBOX_URL: z.string().url(),
-  NEXT_PUBLIC_ENVIRONMENT: z.enum(["development", "production", "staging"]),
+const clientEnvSchema = z.object({
+  NEXT_PUBLIC_API_URL: z.url(),
+  NEXT_PUBLIC_LOOQBOX_URL: z.url(),
+  NEXT_PUBLIC_ENVIRONMENT: z.enum(["development", "production"]),
 });
 
-const parsedEnv = envSchema.safeParse(process.env);
+const parsed = clientEnvSchema.safeParse({
+  NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
+  NEXT_PUBLIC_LOOQBOX_URL: process.env.NEXT_PUBLIC_LOOQBOX_URL,
+  NEXT_PUBLIC_ENVIRONMENT: process.env.NEXT_PUBLIC_ENVIRONMENT,
+});
 
-if (!parsedEnv.success) {
-  logger.error("Invalid environment variables");
-  logger.error(parsedEnv.error.format());
-  throw new Error("Invalid environment variables");
+if (!parsed.success) {
+  console.error("Erro nas variáveis:", parsed.error.issues);
+  throw new Error("Variáveis de ambiente inválidas.");
 }
 
-export const env = {
-  API_URL: parsedEnv.data.NEXT_PUBLIC_API_URL,
-  LOOKBOX_URL: parsedEnv.data.NEXT_PUBLIC_LOOKBOX_URL,
-  ENVIRONMENT: parsedEnv.data.NEXT_PUBLIC_ENVIRONMENT,
-};
+export const env = parsed.data;
