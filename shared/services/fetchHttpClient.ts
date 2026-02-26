@@ -23,4 +23,3 @@ export class FetchHttpClient implements HttpClient {
     return response.json();
   }
 }
-

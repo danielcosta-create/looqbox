@@ -24,9 +24,7 @@ export default function RootLayout({
     <html lang="pt-br">
       <body className={`${geistSans.variable} antialiased`}>
         <ConfigProvider theme={antdTheme}>
-          <App>
-            {children}
-          </App>
+          <App>{children}</App>
         </ConfigProvider>
       </body>
     </html>

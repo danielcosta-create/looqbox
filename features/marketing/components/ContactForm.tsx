@@ -169,6 +169,7 @@ export function ContactForm() {
             block
             loading={loading}
             disabled={!isValid || loading}
+            className="mt-4"
           >
             Enviar
           </Button>

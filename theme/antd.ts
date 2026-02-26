@@ -31,8 +31,11 @@ export const antdTheme: ThemeConfig = {
     },
     Layout: {
       headerBg: "#ffffff",
+      headerHeight: "auto",
+      headerPadding: "16px",
       bodyBg: "#ffffff",
       footerBg: "#ffffff",
+      footerPadding: "16px",
     },
   },
 };

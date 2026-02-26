@@ -4,5 +4,5 @@ export function useLooqboxFooter() {
 
   return {
     currentYear,
-  }
+  };
 }
