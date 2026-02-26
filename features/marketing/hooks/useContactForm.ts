@@ -6,15 +6,16 @@ import {
   ContactFormData,
   employeeRanges,
 } from "@/features/marketing/schemas/contactSchema";
-import { message } from "antd";
 import { ConsoleLogger, toSelectOptions } from "@/shared/utils";
 import { FetchHttpClient } from "@/shared/services";
 import { env } from "@/config/env";
 import { ContactService } from "@/features/marketing/services/contactService";
+import { App } from "antd";
 
 export function useContactForm() {
   const [loading, setLoading] = useState(false);
 
+  const { message } = App.useApp();
   const logger = new ConsoleLogger();
   const httpClient = new FetchHttpClient(env.NEXT_PUBLIC_API_URL);
   const contactService = new ContactService(logger, httpClient);
@@ -38,6 +39,7 @@ export function useContactForm() {
       await contactService.createContact(data);
 
       message.success("Formulário enviado com sucesso");
+
       reset();
     } catch (error) {
       logger.error(error);

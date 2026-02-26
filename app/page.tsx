@@ -3,7 +3,7 @@
 import { Layout } from "antd";
 import { LooqboxHeader, LooqboxFooter } from "@/shared/components";
 import { HeroSection } from "@/features/marketing/components";
-const { Content } = Layout;
+const { Content, Sider } = Layout;
 
 export default function Home() {
   return (

@@ -16,15 +16,18 @@ export const antdTheme: ThemeConfig = {
       labelFontSize: 14,
     },
     Input: {
+      colorBgContainer: "#ffffff",
       activeShadow: "0 0 0 2px rgba(0, 200, 153, 0.1)",
     },
     Select: {
+      colorBgContainer: "#ffffff",
       optionActiveBg: "#f0fdf9",
       optionSelectedBg: "#ecfdf5",
     },
     Button: {
       primaryShadow: "0 2px 4px rgba(0, 200, 153, 0.2)",
       fontWeight: 500,
+      borderRadius: 12,
     },
     Layout: {
       headerBg: "#ffffff",
