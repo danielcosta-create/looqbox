@@ -60,7 +60,7 @@ export function AboutProjectModal({ open, onCancel }: AboutProjectModalProps) {
         href="https://github.com/danielcosta-create/looqbox"
         target="_blank"
         block
-        className="mt-6"
+        className="mt-4"
       >
         Ver no GitHub
       </Button>
